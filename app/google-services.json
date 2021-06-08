@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "62247926848",
+    "project_id": "myholidayplaces",
+    "storage_bucket": "myholidayplaces.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62247926848:android:71a37f1bbd0fa88e5cb3a5",
+        "android_client_info": {
+          "package_name": "com.example.tatil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62247926848-36p83a2ee4li3mt5stgvj68c2vlvjrju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3j6R-4U3tUJA42VxHEBVe3khQnsFwoEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62247926848-36p83a2ee4li3mt5stgvj68c2vlvjrju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
