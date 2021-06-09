@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {// MAİN ACTİVİTY navigasyon selected item yorumy
                 switch (item.getItemId()){
                     case R.id.nav_home:
                         selectorFragment = new HomeFragment();
