@@ -61,7 +61,24 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        Bundle intent = getIntent().getExtras();
+
+        if (intent != null){
+            String location = intent.getString("location");
+
+
+            getSharedPreferences("LOCATION",MODE_PRIVATE).edit().putString("location",location).apply();
+            System.out.println(location+    "       *****************"      );
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new LocationsFragment()).commit();
+            bottomNavigationView.setSelectedItemId(R.id.nav_profile);
+        }else{
+//            String location = intent.getString("location");
+            System.out.println(     "---************-----------************"      );
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NotificationFragment()).commit();
+        }
 
 
     }
+
+
 }

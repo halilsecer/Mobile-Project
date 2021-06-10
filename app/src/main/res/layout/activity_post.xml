@@ -73,5 +73,15 @@
             app:socialFlags="hashtag|mention"
             app:hashtagColor="@color/colorPrimary"/>
 
+    <com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:hint="Location"
+        android:maxLines="5"
+        app:hashtagColor="@color/colorPrimary"
+        app:socialFlags="hashtag|mention" />
+
 
 </LinearLayout>
