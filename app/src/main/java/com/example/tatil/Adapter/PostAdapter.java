@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tatil.Classes.Post;
 import com.example.tatil.Classes.User;
 import com.example.tatil.CommentActivity;
+import com.example.tatil.MapActivity;
 import com.example.tatil.R;
+import com.google.android.gms.common.util.JsonUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -107,6 +109,26 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
                 intent.putExtra("authorId", post.getPublisher());
                 mContext.startActivity(intent);
             }
+        });
+        holder.goTo.setOnClickListener(new View.OnClickListener() {
+            //post.setLocation(");
+            @Override
+            public void onClick(View v) {
+              /*  try {
+                    LocationList = geocoder.getFromLocationName(location,1);
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+                Address address = LocationList.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
+                mapLocation.addMarker(new MarkerOptions().position(latLng).title(location));
+                mapLocation.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+                supportMapFragment.getMapAsync();
+*/
+                Intent intent = new Intent(mContext, MapActivity.class);
+                intent.putExtra("location",post.getLocation());
+                System.out.println("///////////////////////"+post.getLocation());
+                mContext.startActivity(intent); }
         });
 
     }
