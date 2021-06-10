@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        selectorFragment = new HomeFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , selectorFragment).commit();
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {// MAİN ACTİVİTY navigasyon selected item yorumy
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_profile:
                         selectorFragment = new ProfileFragment();
+                        break;
                 }
 
                 if (selectorFragment != null){
@@ -57,6 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+
     }
 }

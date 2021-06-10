@@ -51,6 +51,14 @@
         android:inputType="textPassword"
         android:hint="Password"/>
 
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="Adress" />
+
     <Button
         android:id="@+id/register"
         android:layout_width="match_parent"

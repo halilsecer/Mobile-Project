@@ -58,7 +58,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
-
                 if (user.getImageurl().equals("default")){
                     holder.imageProfile.setImageResource(R.mipmap.ic_launcher);
                 }else{
