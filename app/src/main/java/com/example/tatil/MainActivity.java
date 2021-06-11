@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         selectorFragment = new HomeFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , selectorFragment).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , selectorFragment).commit();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
 //            String location = intent.getString("location");
             System.out.println(     "---************-----------************"      );
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NotificationFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectorFragment).commit();
         }
 
 

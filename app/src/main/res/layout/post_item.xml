@@ -79,19 +79,10 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_goto"
-                android:layout_toEndOf="@+id/comment"
-                android:layout_marginStart="10dp"
-                android:layout_toRightOf="@+id/comment"
                 android:layout_marginLeft="10dp"
-                android:id="@+id/goTo"/>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_save"
+                android:id="@+id/goTo"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/save"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"/>
 
         </RelativeLayout>
 

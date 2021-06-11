@@ -15,6 +15,7 @@ import com.example.tatil.Classes.Post;
 import com.example.tatil.Classes.User;
 import com.example.tatil.CommentActivity;
 import com.example.tatil.MapActivity;
+import com.example.tatil.ProfileActivity;
 import com.example.tatil.R;
 import com.google.android.gms.common.util.JsonUtils;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,6 +72,15 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        holder.imageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ProfileActivity.class);
+                intent.putExtra("publisherId",post.getPublisher());
+                mContext.startActivity(intent);
             }
         });
 
@@ -162,7 +172,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             postImage = itemView.findViewById(R.id.post_image);
             like = itemView.findViewById(R.id.like);
             comment = itemView.findViewById(R.id.comment);
-            save = itemView.findViewById(R.id.save);
+            //save = itemView.findViewById(R.id.save);
             more = itemView.findViewById(R.id.more);
             goTo = itemView.findViewById(R.id.goTo);
 

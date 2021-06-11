@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tatil.Classes.Post;
 import com.example.tatil.Classes.User;
 import com.example.tatil.CommentActivity;
+import com.example.tatil.Fragments.ProfileFragment;
 import com.example.tatil.ProfileActivity;
 import com.example.tatil.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder>{
@@ -53,7 +55,6 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         User user = userList.get(position);
 
         Picasso.get().load(user.getImageurl()).into(holder.imageProfile);
@@ -76,6 +77,26 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder
                 mContext.startActivity(intent);
             }
         });
+
+        //holder.noOfPost.setText(ProfileFragment.photoList.size()+" posts");
+
+        System.out.println(user.getId()+"user id bind");
+
+        database.getReference().child("Posts").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+                holder.noOfPost.setText(snapshot.getChildrenCount()+ " post");
+                System.out.println(snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //noOfPosts(user.getId(),holder.noOfPost);
 
 
     }
@@ -105,10 +126,12 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder
     }
 
     private void noOfPosts (String publisherId,TextView text){
+        System.out.println(publisherId+"pub");
         database.getReference().child("Posts").child(publisherId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                text.setText(snapshot.getChildrenCount()+ " likes");
+                text.setText(snapshot.getChildrenCount()+ " post");
+                System.out.println(snapshot.getValue());
             }
 
             @Override
