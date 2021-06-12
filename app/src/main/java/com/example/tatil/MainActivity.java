@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         selectorFragment = new HomeFragment();
 
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , selectorFragment).commit();
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {// MAİN ACTİVİTY navigasyon selected item yorumy
@@ -61,21 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        Bundle intent = getIntent().getExtras();
 
-        if (intent != null){
-            String location = intent.getString("location");
-
-
-            getSharedPreferences("LOCATION",MODE_PRIVATE).edit().putString("location",location).apply();
-            System.out.println(location+    "       *****************"      );
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new LocationsFragment()).commit();
-            bottomNavigationView.setSelectedItemId(R.id.nav_profile);
-        }else{
-//            String location = intent.getString("location");
-            System.out.println(     "---************-----------************"      );
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectorFragment).commit();
-        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectorFragment).commit();
 
 
     }

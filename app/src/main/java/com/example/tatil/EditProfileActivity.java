@@ -58,6 +58,7 @@ public class EditProfileActivity extends AppCompatActivity {
         btn_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getApplicationContext().getSharedPreferences("LOCATION",getApplicationContext().MODE_PRIVATE).edit().clear().apply();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(EditProfileActivity.this, StartingActivity.class));
             }

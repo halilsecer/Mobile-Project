@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.tatil.Adapter.CommentAdapter;
 import com.example.tatil.Adapter.MentorAdapter;
@@ -36,6 +37,7 @@ public class CityActivity extends AppCompatActivity {
     private List<User> userList;
     private List<HashTag> hashTagList;
     private List<Post> postList;
+    private TextView tv;
 
     FirebaseUser firebaseUser;
 
@@ -45,6 +47,7 @@ public class CityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_city);
 
         recyclerView = findViewById(R.id.rv_mentors);
+        tv = findViewById(R.id.tv_city_mentors);
         city_name = getIntent().getStringExtra("cityName");;
 
 

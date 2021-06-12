@@ -24,18 +24,4 @@
 
     </Button>
 
-    <TextView
-        android:id="@+id/textView_map_loc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="545dp"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/textView_map_lat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="520dp"
-        android:text="TextView" />
 </FrameLayout>

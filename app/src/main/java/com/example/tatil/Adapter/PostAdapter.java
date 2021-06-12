@@ -121,23 +121,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             }
         });
         holder.goTo.setOnClickListener(new View.OnClickListener() {
-            //post.setLocation(");
             @Override
             public void onClick(View v) {
-              /*  try {
-                    LocationList = geocoder.getFromLocationName(location,1);
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-                Address address = LocationList.get(0);
-                LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
-                mapLocation.addMarker(new MarkerOptions().position(latLng).title(location));
-                mapLocation.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
-                supportMapFragment.getMapAsync();
-*/
+                FirebaseDatabase.getInstance().getReference().child("Users").child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user = snapshot.getValue(User.class);
+                        String adress = user.getAdress();
+                        System.out.println("Adressss"+adress);
+                        mContext.getSharedPreferences("LOCATION", mContext.MODE_PRIVATE).edit().putString("location", adress).apply();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 Intent intent = new Intent(mContext, MapActivity.class);
                 intent.putExtra("location",post.getLocation());
-                System.out.println("///////////////////////"+post.getLocation());
                 mContext.startActivity(intent); }
         });
 
@@ -149,7 +151,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-
 
         public ImageView imageProfile;
         public ImageView postImage;
@@ -172,7 +173,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             postImage = itemView.findViewById(R.id.post_image);
             like = itemView.findViewById(R.id.like);
             comment = itemView.findViewById(R.id.comment);
-            //save = itemView.findViewById(R.id.save);
             more = itemView.findViewById(R.id.more);
             goTo = itemView.findViewById(R.id.goTo);
 

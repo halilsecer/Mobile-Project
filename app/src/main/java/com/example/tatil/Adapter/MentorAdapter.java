@@ -11,12 +11,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tatil.Classes.HashTag;
 import com.example.tatil.Classes.Post;
 import com.example.tatil.Classes.User;
 import com.example.tatil.CommentActivity;
 import com.example.tatil.Fragments.ProfileFragment;
 import com.example.tatil.ProfileActivity;
 import com.example.tatil.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +36,8 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder
     private Context mContext;
     private List<User> userList;
     private String city_name;
+    private int count;
+    private List<Post> postsList;
 
     private FirebaseUser firebaseUser;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -56,6 +61,7 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         User user = userList.get(position);
+        count = 0;
 
         Picasso.get().load(user.getImageurl()).into(holder.imageProfile);
         holder.username.setText(user.getUsername());
@@ -78,25 +84,7 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder
             }
         });
 
-        //holder.noOfPost.setText(ProfileFragment.photoList.size()+" posts");
-
-        System.out.println(user.getId()+"user id bind");
-
-        database.getReference().child("Posts").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User user = snapshot.getValue(User.class);
-                holder.noOfPost.setText(snapshot.getChildrenCount()+ " post");
-                System.out.println(snapshot.getValue());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        //noOfPosts(user.getId(),holder.noOfPost);
+        noOfPosts(user.getId(),holder.noOfPost, user);
 
 
     }
@@ -125,20 +113,25 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder
         }
     }
 
-    private void noOfPosts (String publisherId,TextView text){
-        System.out.println(publisherId+"pub");
-        database.getReference().child("Posts").child(publisherId).addValueEventListener(new ValueEventListener() {
+    private void noOfPosts (String publisherId,TextView text,User user){
+
+        database.getReference().child("Posts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                text.setText(snapshot.getChildrenCount()+ " post");
-                System.out.println(snapshot.getValue());
+                for (DataSnapshot datasnapshot: snapshot.getChildren()) {
+                    Post post= datasnapshot.getValue(Post.class);
+                    if (post.getPublisher().equals(publisherId)){
+                        count++;
+                    }
+                }
+                text.setText(count+" posts "+"\n"+user.getEmail());
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
     }
 
 }
