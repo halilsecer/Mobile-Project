@@ -87,8 +87,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             LocationList = geocoder.getFromLocationName(location, 1);
 
             latLng = new LatLng(LocationList.get(0).getLatitude(), LocationList.get(0).getLongitude());
-            System.out.println("location list " + LocationList.get(0));
-        } catch (IOException e) {
+         } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -99,7 +98,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 displayTrack(data, location);
                 if (ActivityCompat.checkSelfPermission(MapActivity.this,
                         Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    System.out.println("TIKLANILDI TIKLAN");
 
                 }
             }
@@ -123,10 +121,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     }
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        System.out.println("------------MAP READY ------------");
 
         mapLocation = googleMap;
-        mapLocation.addMarker(new MarkerOptions().position(latLng).title(data));
+      //  mapLocation.addMarker(new MarkerOptions().position(latLng).title(data));
         mapLocation.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
 
     }
