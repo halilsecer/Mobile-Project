@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Fragments.ProfileFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        android:background="#FDEBD0"
         android:id="@+id/bar">
 
         <androidx.appcompat.widget.Toolbar
@@ -19,13 +20,16 @@
             android:id="@+id/toolbar">
 
             <RelativeLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/profile_photo"
                     android:layout_width="163dp"
                     android:layout_height="165dp"
+
                     android:layout_centerHorizontal="true" />
 
                 <ImageView
@@ -93,6 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Posts"
+            android:textColor="#CB4335"
             android:textStyle="bold"
             android:textSize="30dp"
             android:layout_margin="15dp"/>
@@ -105,6 +110,7 @@
         android:layout_below="@+id/bar">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:background="#FBFAF8"
             android:id="@+id/recyler_view_posts"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

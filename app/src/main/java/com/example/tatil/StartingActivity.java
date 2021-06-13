@@ -32,7 +32,7 @@ public class StartingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting);
 
-        iconImage = findViewById(R.id.icon_image);
+     iconImage = findViewById(R.id.icon_image);
         linearLayout = findViewById(R.id.linear_layout);
         register = findViewById(R.id.register);
         login = findViewById(R.id.login);

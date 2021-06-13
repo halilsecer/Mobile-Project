@@ -3,23 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.HomeFragment">
+    tools:context=".Fragments.HomeFragment"
+    android:background="#FBFAF8">
 
    <com.google.android.material.appbar.AppBarLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
+
        android:id="@+id/bar"
-       android:background="?android:attr/windowBackground">
+       android:background="#219264"  >
 
        <androidx.appcompat.widget.Toolbar
+
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:id="@+id/toolbar"
-           android:background="?android:attr/windowBackground">
+           android:background="#219264"
+           >
 
            <RelativeLayout
                android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+               android:background="#219264"
+
+                android:layout_height="wrap_content">
 
                <ImageView
                    android:layout_width="180dp"

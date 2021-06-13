@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.NotificationFragment">
+    tools:context=".Fragments.NotificationFragment"
+    android:background="#FDEBD0">
 
     <!-- TODO: Update blank fragment layout -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_city"
         android:layout_width="413dp"
+        android:background="@color/white"
         android:layout_height="569dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,9 +22,11 @@
         android:id="@+id/tv_city_mentors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#CB4335"
         android:layout_marginTop="26dp"
         android:text="CITY MENTORS"
         android:textSize="30sp"
+
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

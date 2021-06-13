@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#FDEBD0"
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
@@ -10,12 +11,14 @@
         android:id="@+id/change_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
-        android:text="Change Profile Image"
+
+         android:text="Change Profile Image"
+        app:backgroundTint="#EC7063"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/rounded_fg"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.193" />
 
@@ -23,8 +26,9 @@
         android:id="@+id/exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
-        android:text="Log out"
+         android:text="Log out"
+        app:backgroundTint="#EC7063"
+        android:background="@drawable/rounded_fg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
