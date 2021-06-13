@@ -79,7 +79,7 @@
         android:layout_marginTop="15dp"
         android:padding="10dp"
         android:text="REGISTER"
-        app:backgroundTint="#EC7063" />
+        app:backgroundTint="#38acff" />
 
     <TextView
         android:layout_width="wrap_content"

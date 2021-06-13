@@ -11,7 +11,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="250dp"
         android:src="@drawable/c11e79e55a3a849888574a52e78f5855" />
 
     <EditText
@@ -41,7 +41,7 @@
         android:background="@drawable/rounded_fg"
         android:padding="10dp"
         android:text="LOGIN"
-        app:backgroundTint="#EC7063"
+        app:backgroundTint="#38acff"
 
         />
 

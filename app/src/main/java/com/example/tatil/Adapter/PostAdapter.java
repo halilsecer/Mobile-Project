@@ -173,7 +173,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             postImage = itemView.findViewById(R.id.post_image);
             like = itemView.findViewById(R.id.like);
             comment = itemView.findViewById(R.id.comment);
-            more = itemView.findViewById(R.id.more);
+            //more = itemView.findViewById(R.id.more);
             goTo = itemView.findViewById(R.id.goTo);
 
             username = itemView.findViewById(R.id.username);

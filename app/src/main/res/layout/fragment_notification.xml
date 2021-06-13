@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.NotificationFragment"
-    android:background="#FDEBD0">
+    android:background="#ff385c">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -22,7 +22,7 @@
         android:id="@+id/tv_city_mentors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#CB4335"
+        android:textColor="#38ffdb"
         android:layout_marginTop="26dp"
         android:text="CITY MENTORS"
         android:textSize="30sp"

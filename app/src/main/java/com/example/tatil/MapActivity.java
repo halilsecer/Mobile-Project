@@ -62,6 +62,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private List<Address> LocationList;
     private Button btn_map_destination;
     private LatLng latLng;
+    private String data;
 
     private FusedLocationProviderClient client;
 
@@ -73,7 +74,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         btn_map_destination = findViewById(R.id.btn_map_directions);
 
         String location = intent.getString("location");
-        String data = getApplicationContext().getSharedPreferences("LOCATION", Context.MODE_PRIVATE).getString("location", "none");
+         data = getApplicationContext().getSharedPreferences("LOCATION", Context.MODE_PRIVATE).getString("location", "none");
 
         client = LocationServices.getFusedLocationProviderClient(this);
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -119,16 +120,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         }
 
-
     }
-
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         System.out.println("------------MAP READY ------------");
 
         mapLocation = googleMap;
-
+        mapLocation.addMarker(new MarkerOptions().position(latLng).title(data));
         mapLocation.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
 
     }
